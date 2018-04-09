@@ -70,15 +70,16 @@ namespace Projekt_MMM
 
             List<double> Uchyb = new List<double>();
             List<double> Wyjscie = new List<double>();
+            List<double> Wejscie = new List<double>();
 
             Calka calka_pierwsza = new Calka();
             Calka calka_druga = new Calka();
 
             for (akt_czas = 0; akt_czas <= czas_pracy_ukladu; akt_czas++)
             {
-                akt_wejscie = Oblicz_wejscie(akt_czas);                                                                          //deklarujemy wartość wejścia w danym momencie t
-                akt_uchyb = akt_wejscie - akt_wyjście;                                                                           //obliczamy uchyb
-                akt_sygnal_przejsciowy_u1 = Nieliniowosc(akt_uchyb);                                                             //uchyb przepuszczamy przez człon nieliniowy
+                akt_wejscie = Oblicz_wejscie(akt_czas,Wejscie);                                                                         //deklarujemy wartość wejścia w danym momencie t
+                akt_uchyb = akt_wejscie - akt_wyjście;                                                                                  //obliczamy uchyb
+                akt_sygnal_przejsciowy_u1 = Nieliniowosc(akt_uchyb);                                                                    //uchyb przepuszczamy przez człon nieliniowy
                 akt_wyjście = Oblicz_wyjscie(calka_pierwsza, calka_druga, akt_sygnal_przejsciowy_u1, ref stan_przejsciowy_x1);
 
                 Uchyb.Add(akt_uchyb);
@@ -114,7 +115,8 @@ namespace Projekt_MMM
                 };
 
             Rysuj_wykres(Wyjscie, Brushes.Red, Canvas_Y, wspolrzedne_x_wyjscie, wspolrzedne_y_wyjscie, czas_pracy_ukladu * Calka.krok);
-            Rysuj_wykres(Uchyb, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
+            if(RB_uchyb.IsChecked == true) Rysuj_wykres(Uchyb, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
+            else Rysuj_wykres(Wejscie, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
 
         }
 
@@ -192,7 +194,7 @@ namespace Projekt_MMM
             else return param_A / param_a * uchyb;
         }
 
-        private double Oblicz_wejscie(double czas)
+        private double Oblicz_wejscie(double czas, List<double> Wejscie)
         {
             double amplituda_ost = 0;
             double czas_rzeczywisty = czas * Calka.krok;
@@ -233,7 +235,13 @@ namespace Projekt_MMM
                         amplituda_ost = Math.Sin((2 * Math.PI * czas_rzeczywisty / okres));
                     }
                     break;
+                case "Skok jednostkowy":
+                    {
+                        amplituda_ost = 1;
+                    }
+                    break;
             }
+            Wejscie.Add(amplituda_ost);
             return amplituda_ost;
         }
         }
