@@ -36,6 +36,8 @@ namespace Projekt_MMM
                 TBlock_parametr_A.Text = TBox_parametr_A.Text;
                 TBlock_parametr_T.Text = TBox_parametr_T.Text;
                 TBlock_parametr_pobudzenie.Text = TBox_parametr_pobudzenie.Text;
+                if (RB_uchyb.IsChecked == true) uchyb_wejscie.Content = "Uchyb ";
+                else uchyb_wejscie.Content = "Wejście ";
 
                 dolny_pasek.Visibility = Visibility.Visible;
 
@@ -77,7 +79,7 @@ namespace Projekt_MMM
 
             for (akt_czas = 0; akt_czas <= czas_pracy_ukladu; akt_czas++)
             {
-                akt_wejscie = Oblicz_wejscie(akt_czas,Wejscie);                                                                         //deklarujemy wartość wejścia w danym momencie t
+                akt_wejscie = Oblicz_wejscie(akt_czas, Wejscie);                                                                        //deklarujemy wartość wejścia w danym momencie t
                 akt_uchyb = akt_wejscie - akt_wyjście;                                                                                  //obliczamy uchyb
                 akt_sygnal_przejsciowy_u1 = Nieliniowosc(akt_uchyb);                                                                    //uchyb przepuszczamy przez człon nieliniowy
                 akt_wyjście = Oblicz_wyjscie(calka_pierwsza, calka_druga, akt_sygnal_przejsciowy_u1, ref stan_przejsciowy_x1);
@@ -115,9 +117,9 @@ namespace Projekt_MMM
                 };
 
             Rysuj_wykres(Wyjscie, Brushes.Red, Canvas_Y, wspolrzedne_x_wyjscie, wspolrzedne_y_wyjscie, czas_pracy_ukladu * Calka.krok);
-            if(RB_uchyb.IsChecked == true) Rysuj_wykres(Uchyb, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
-            else Rysuj_wykres(Wejscie, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
 
+            if (RB_uchyb.IsChecked == true) Rysuj_wykres(Uchyb, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
+            else Rysuj_wykres(Wejscie, Brushes.Blue, Canvas_E, wspolrzedne_x_uchyb, wspolrzedne_y_uchyb, czas_pracy_ukladu * Calka.krok);
         }
 
         private void Rysuj_wykres(List<double> Dane, SolidColorBrush kolor, Canvas canvas, Label[] wsp_x, Label[] wsp_y, double czas_pracy)

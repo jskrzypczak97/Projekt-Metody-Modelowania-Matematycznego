@@ -305,7 +305,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Foreground="#FF737272" Content="a: " Grid.Column="0" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -316,6 +317,7 @@
                 <TextBlock Name="TBlock_parametr_T" Margin="17 1 0 0" FontSize="10" FontWeight="DemiBold" TextAlignment="Left" Grid.Column="2" VerticalAlignment="Center"/>
                 <Label Foreground="#FF737272" Content="Pobudzenie: " Grid.Column="3" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBlock Name="TBlock_parametr_pobudzenie" Margin="65 1 0 0" FontSize="10" FontWeight="DemiBold" TextAlignment="Left" Grid.Column="3" VerticalAlignment="Center"/>
+                <Label Name="uchyb_wejscie" Foreground="Black" Grid.Column="4" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             </Grid>
         </Grid>
     </Grid>
