@@ -6,6 +6,6 @@
         public double probka_terazniejsza = 0;
         public double wartosc = 0;
 
-        public static double krok = 0.0001;
+        public static double krok = 0.001;
     }
 }
