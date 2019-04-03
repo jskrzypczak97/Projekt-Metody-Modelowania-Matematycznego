@@ -1,0 +1,324 @@
+﻿<Window x:Class="Projekt_MMM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Projekt 13" Height="700" Width="1050">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="5 5 5 5" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0 9 0 0" Grid.Row="0">
+                <TextBlock FontSize="20" FontWeight="DemiBold" TextAlignment="Center" Text="PARAMETRY"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="0 10" BorderThickness="1" BorderBrush="Black">
+                    <Label Padding="35 7 30 5" Content="a" FontWeight="DemiBold" Background="LightGray" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" Width="81"/>
+                </Border>
+                <TextBox Text="1" Name="TBox_parametr_a" Margin="0 10" FontSize="28" TextAlignment="Right" Grid.Column="1" MaxLength="5" MaxLines="1"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="0 10" BorderThickness="1" BorderBrush="Black">
+                    <Label Padding="34 8 30 8" Content="A" FontWeight="DemiBold" Background="LightGray" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" Width="81"/>
+                </Border>
+                <TextBox Text="1" Name="TBox_parametr_A" Margin="0 10" FontSize="28" TextAlignment="Right" Grid.Column="1" MaxLength="5" MaxLines="1"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="0 10" BorderThickness="1" BorderBrush="Black">
+                    <Label Padding="35 8 30 8" Content="T" FontWeight="DemiBold" Background="LightGray" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" Width="81"/>
+                </Border>
+                <TextBox Text="1" Name="TBox_parametr_T" Margin="0 10" FontSize="28" TextAlignment="Right" Grid.Column="1" MaxLength="5" TextOptions.TextHintingMode="Animated" MaxLines="1"/>
+            </Grid>
+            <Grid Margin="0 14 0 0" Grid.Row="4">
+                <TextBlock FontSize="20" FontWeight="DemiBold" TextAlignment="Center" Text="POBUDZENIE"/>
+            </Grid>
+            <Grid Grid.Row="5">
+                <ComboBox Name="TBox_parametr_pobudzenie" Margin="0 5" FontWeight="DemiBold" Background="LightGray" FontSize="20">
+                    <ComboBoxItem>Fala prostokątna</ComboBoxItem>
+                    <ComboBoxItem>Fala trójkątna</ComboBoxItem>
+                    <ComboBoxItem>Sinusoida</ComboBoxItem>
+                    <ComboBoxItem>Skok jednostkowy</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="6">
+                <Label Content="Treść drugiego wykresu" FontWeight="DemiBold" Margin="40 125 40 140" Padding="20 0"/>
+                <RadioButton Name="RB_uchyb" GroupName="Drugi_wykres" Margin="20 155 160 120" Content="Uchyb" FontWeight="DemiBold" IsChecked="True"/>
+                <RadioButton Name="RB_wejscie" GroupName="Drugi_wykres" Margin="160 155 20 120" Content="Wejście" FontWeight="DemiBold"/>
+                <Button Margin="0 190 0 35.5" FontWeight="DemiBold" FontSize="20" Content="WYKONAJ" Click="Wykonaj"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Margin="5 5 5 5" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0 0 0 5">
+                <Canvas Name="Canvas_osie_y">
+
+                    <Line Name="linia_wyznacznik" X1="25" Y1="154.8" X2="762.8" Y2="154.8" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="25" Y1="5" X2="25" Y2="300.6" Stroke="Black" StrokeThickness="1"/>
+
+                    <Line X1="25" Y1="5" X2="20" Y2="15" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="25" Y1="5" X2="30" Y2="15" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="762.8" Y1="154.8" X2="755.8" Y2="149.8" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="762.8" Y1="154.8" X2="755.8" Y2="159.8" Stroke="Black" StrokeThickness="1"/>
+
+                    <Line Name="linia_zakres_gorny_y" X1="23.5" Y1="22.8" X2="26.5" Y2="22.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="34.8" X2="26.5" Y2="34.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="46.8" X2="26.5" Y2="46.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="58.8" X2="26.5" Y2="58.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="70.8" X2="26.5" Y2="70.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="82.8" X2="26.5" Y2="82.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="94.8" X2="26.5" Y2="94.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="106.8" X2="26.5" Y2="106.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="118.8" X2="26.5" Y2="118.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="130.8" X2="26.5" Y2="130.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="142.8" X2="26.5" Y2="142.8" Stroke="Black" StrokeThickness="0.5"/>
+
+                    <Line X1="23.5" Y1="166.8" X2="26.5" Y2="166.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="178.8" X2="26.5" Y2="178.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="190.8" X2="26.5" Y2="190.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="202.8" X2="26.5" Y2="202.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="214.8" X2="26.5" Y2="214.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="226.8" X2="26.5" Y2="226.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="238.8" X2="26.5" Y2="238.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="250.8" X2="26.5" Y2="250.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="262.8" X2="26.5" Y2="262.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="274.8" X2="26.5" Y2="274.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line Name="linia_zakres_dolny_y" X1="23.5" Y1="286.8" X2="26.5" Y2="286.8" Stroke="Black" StrokeThickness="0.5"/>
+
+                    <Line X1="61" Y1="156.3" X2="61" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="97" Y1="156.3" X2="97" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="133" Y1="156.3" X2="133" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="169" Y1="156.3" X2="169" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="205" Y1="156.3" X2="205" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="241" Y1="156.3" X2="241" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="277" Y1="156.3" X2="277" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="313" Y1="156.3" X2="313" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="349" Y1="156.3" X2="349" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="385" Y1="156.3" X2="385" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="421" Y1="156.3" X2="421" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="457" Y1="156.3" X2="457" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="493" Y1="156.3" X2="493" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="529" Y1="156.3" X2="529" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="565" Y1="156.3" X2="565" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="601" Y1="156.3" X2="601" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="637" Y1="156.3" X2="637" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="673" Y1="156.3" X2="673" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="709" Y1="156.3" X2="709" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line Name="linia_zakres_gorny_x" X1="745" Y1="156.3" X2="745" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+
+                    <Canvas Name="Canvas_Y"/>
+
+                    <Canvas Name="Wyjscie_wsp_y">
+                        <Label Name="wsp_wyjscia_y11" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="13" Width="26"/>
+                        <Label Name="wsp_wyjscia_y10" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="25" Width="26"/>
+                        <Label Name="wsp_wyjscia_y9" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="37" Width="26"/>
+                        <Label Name="wsp_wyjscia_y8" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="49" Width="26"/>
+                        <Label Name="wsp_wyjscia_y7" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="61" Width="26"/>
+                        <Label Name="wsp_wyjscia_y6" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="73" Width="26"/>
+                        <Label Name="wsp_wyjscia_y5" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="85" Width="26"/>
+                        <Label Name="wsp_wyjscia_y4" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="97" Width="26"/>
+                        <Label Name="wsp_wyjscia_y3" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="109" Width="26"/>
+                        <Label Name="wsp_wyjscia_y2" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="121" Width="26"/>
+                        <Label Name="wsp_wyjscia_y1" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="133" Width="26"/>
+                        <Label Name="wsp_wyjscia_y0" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="145" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym1" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="157" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym2" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="169" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym3" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="181" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym4" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="193" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym5" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="205" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym6" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="217" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym7" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="229" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym8" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="241" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym9" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="253" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym10" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="265" Width="26"/>
+                        <Label Name="wsp_wyjscia_ym11" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="277" Width="26"/>
+
+                        <Label Name="wsp_wyjscia_x1" FontSize="7" Foreground="Black" Height="23" Canvas.Left="50" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x2" FontSize="7" Foreground="Black" Height="23" Canvas.Left="86" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x3" FontSize="7" Foreground="Black" Height="23" Canvas.Left="122" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x4" FontSize="7" Foreground="Black" Height="23" Canvas.Left="158" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x5" FontSize="7" Foreground="Black" Height="23" Canvas.Left="194" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x6" FontSize="7" Foreground="Black" Height="23" Canvas.Left="230" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x7" FontSize="7" Foreground="Black" Height="23" Canvas.Left="266" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x8" FontSize="7" Foreground="Black" Height="23" Canvas.Left="302" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x9" FontSize="7" Foreground="Black" Height="23" Canvas.Left="338" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x10" FontSize="7" Foreground="Black" Height="23" Canvas.Left="372" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x11" FontSize="7" Foreground="Black" Height="23" Canvas.Left="408" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x12" FontSize="7" Foreground="Black" Height="23" Canvas.Left="444" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x13" FontSize="7" Foreground="Black" Height="23" Canvas.Left="480" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x14" FontSize="7" Foreground="Black" Height="23" Canvas.Left="516" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x15" FontSize="7" Foreground="Black" Height="23" Canvas.Left="552" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x16" FontSize="7" Foreground="Black" Height="23" Canvas.Left="588" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x17" FontSize="7" Foreground="Black" Height="23" Canvas.Left="624" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x18" FontSize="7" Foreground="Black" Height="23" Canvas.Left="660" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x19" FontSize="7" Foreground="Black" Height="23" Canvas.Left="696" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_wyjscia_x20" FontSize="7" Foreground="Black" Height="23" Canvas.Left="732" Canvas.Top="151" Width="27"/>
+                    </Canvas>
+                </Canvas>
+                <Border BorderThickness="0.5" BorderBrush="Gray"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0 0 0 5">
+                <Canvas Name="Canvas_osie_e">
+                    <Line X1="25" Y1="154.8" X2="762.8" Y2="154.8" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="25" Y1="5" X2="25" Y2="300.6" Stroke="Black" StrokeThickness="1"/>
+
+                    <Line X1="25" Y1="5" X2="20" Y2="15" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="25" Y1="5" X2="30" Y2="15" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="762.8" Y1="154.8" X2="755.8" Y2="149.8" Stroke="Black" StrokeThickness="1"/>
+                    <Line X1="762.8" Y1="154.8" X2="755.8" Y2="159.8" Stroke="Black" StrokeThickness="1"/>
+
+                    <Line X1="23.5" Y1="22.8" X2="26.5" Y2="22.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="34.8" X2="26.5" Y2="34.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="46.8" X2="26.5" Y2="46.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="58.8" X2="26.5" Y2="58.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="70.8" X2="26.5" Y2="70.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="82.8" X2="26.5" Y2="82.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="94.8" X2="26.5" Y2="94.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="106.8" X2="26.5" Y2="106.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="118.8" X2="26.5" Y2="118.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="130.8" X2="26.5" Y2="130.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="142.8" X2="26.5" Y2="142.8" Stroke="Black" StrokeThickness="0.5"/>
+
+                    <Line X1="23.5" Y1="166.8" X2="26.5" Y2="166.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="178.8" X2="26.5" Y2="178.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="190.8" X2="26.5" Y2="190.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="202.8" X2="26.5" Y2="202.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="214.8" X2="26.5" Y2="214.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="226.8" X2="26.5" Y2="226.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="238.8" X2="26.5" Y2="238.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="250.8" X2="26.5" Y2="250.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="262.8" X2="26.5" Y2="262.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="274.8" X2="26.5" Y2="274.8" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="23.5" Y1="286.8" X2="26.5" Y2="286.8" Stroke="Black" StrokeThickness="0.5"/>
+
+                    <Line X1="61" Y1="156.3" X2="61" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="97" Y1="156.3" X2="97" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="133" Y1="156.3" X2="133" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="169" Y1="156.3" X2="169" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="205" Y1="156.3" X2="205" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="241" Y1="156.3" X2="241" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="277" Y1="156.3" X2="277" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="313" Y1="156.3" X2="313" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="349" Y1="156.3" X2="349" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="385" Y1="156.3" X2="385" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="421" Y1="156.3" X2="421" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="457" Y1="156.3" X2="457" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="493" Y1="156.3" X2="493" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="529" Y1="156.3" X2="529" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="565" Y1="156.3" X2="565" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="601" Y1="156.3" X2="601" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="637" Y1="156.3" X2="637" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="673" Y1="156.3" X2="673" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="709" Y1="156.3" X2="709" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+                    <Line X1="745" Y1="156.3" X2="745" Y2="153.3" Stroke="Black" StrokeThickness="0.5"/>
+
+                    <Canvas Name="Canvas_E"/>
+
+                    <Canvas Name="Wyjscie_wsp_e">
+                        <Label Name="wsp_uchybu_y11" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="13" Width="26"/>
+                        <Label Name="wsp_uchybu_y10" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="25" Width="26"/>
+                        <Label Name="wsp_uchybu_y9" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="37" Width="26"/>
+                        <Label Name="wsp_uchybu_y8" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="49" Width="26"/>
+                        <Label Name="wsp_uchybu_y7" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="61" Width="26"/>
+                        <Label Name="wsp_uchybu_y6" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="73" Width="26"/>
+                        <Label Name="wsp_uchybu_y5" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="85" Width="26"/>
+                        <Label Name="wsp_uchybu_y4" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="97" Width="26"/>
+                        <Label Name="wsp_uchybu_y3" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="109" Width="26"/>
+                        <Label Name="wsp_uchybu_y2" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="121" Width="26"/>
+                        <Label Name="wsp_uchybu_y1" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="133" Width="26"/>
+                        <Label Name="wsp_uchybu_y0" FontSize="7" Foreground="Black" Height="19" Canvas.Left="3" Canvas.Top="145" Width="26"/>
+                        <Label Name="wsp_uchybu_ym1" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="157" Width="26"/>
+                        <Label Name="wsp_uchybu_ym2" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="169" Width="26"/>
+                        <Label Name="wsp_uchybu_ym3" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="181" Width="26"/>
+                        <Label Name="wsp_uchybu_ym4" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="193" Width="26"/>
+                        <Label Name="wsp_uchybu_ym5" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="205" Width="26"/>
+                        <Label Name="wsp_uchybu_ym6" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="217" Width="26"/>
+                        <Label Name="wsp_uchybu_ym7" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="229" Width="26"/>
+                        <Label Name="wsp_uchybu_ym8" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="241" Width="26"/>
+                        <Label Name="wsp_uchybu_ym9" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="253" Width="26"/>
+                        <Label Name="wsp_uchybu_ym10" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="265" Width="26"/>
+                        <Label Name="wsp_uchybu_ym11" FontSize="7" Foreground="Black" Height="19" Canvas.Left="0" Canvas.Top="277" Width="26"/>
+
+                        <Label Name="wsp_uchybu_x1" FontSize="7" Foreground="Black" Height="23" Canvas.Left="50" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x2" FontSize="7" Foreground="Black" Height="23" Canvas.Left="86" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x3" FontSize="7" Foreground="Black" Height="23" Canvas.Left="122" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x4" FontSize="7" Foreground="Black" Height="23" Canvas.Left="158" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x5" FontSize="7" Foreground="Black" Height="23" Canvas.Left="194" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x6" FontSize="7" Foreground="Black" Height="23" Canvas.Left="230" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x7" FontSize="7" Foreground="Black" Height="23" Canvas.Left="266" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x8" FontSize="7" Foreground="Black" Height="23" Canvas.Left="302" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x9" FontSize="7" Foreground="Black" Height="23" Canvas.Left="338" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x10" FontSize="7" Foreground="Black" Height="23" Canvas.Left="372" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x11" FontSize="7" Foreground="Black" Height="23" Canvas.Left="408" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x12" FontSize="7" Foreground="Black" Height="23" Canvas.Left="444" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x13" FontSize="7" Foreground="Black" Height="23" Canvas.Left="480" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x14" FontSize="7" Foreground="Black" Height="23" Canvas.Left="516" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x15" FontSize="7" Foreground="Black" Height="23" Canvas.Left="552" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x16" FontSize="7" Foreground="Black" Height="23" Canvas.Left="588" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x17" FontSize="7" Foreground="Black" Height="23" Canvas.Left="624" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x18" FontSize="7" Foreground="Black" Height="23" Canvas.Left="660" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x19" FontSize="7" Foreground="Black" Height="23" Canvas.Left="696" Canvas.Top="151" Width="27"/>
+                        <Label Name="wsp_uchybu_x20" FontSize="7" Foreground="Black" Height="23" Canvas.Left="732" Canvas.Top="151" Width="27"/>
+                    </Canvas>
+                </Canvas>
+                <Border BorderThickness="0.5" BorderBrush="Gray"/>
+            </Grid>
+
+            <Border Grid.Row="2" BorderThickness="0.5" BorderBrush="Gray"/>
+
+            <Grid Name="dolny_pasek" Grid.Row="2" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Foreground="#FF737272" Content="a: " Grid.Column="0" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Name="TBlock_parametr_a" Margin="17 1 0 0" FontSize="10" FontWeight="DemiBold" TextAlignment="Left" Grid.Column="0" VerticalAlignment="Center"/>
+                <Label Foreground="#FF737272" Content="A: " Grid.Column="1" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Name="TBlock_parametr_A" Margin="17 1 0 0" FontSize="10" FontWeight="DemiBold" TextAlignment="Left" Grid.Column="1" VerticalAlignment="Center"/>
+                <Label Foreground="#FF737272" Content="T: " Grid.Column="2" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Name="TBlock_parametr_T" Margin="17 1 0 0" FontSize="10" FontWeight="DemiBold" TextAlignment="Left" Grid.Column="2" VerticalAlignment="Center"/>
+                <Label Foreground="#FF737272" Content="Pobudzenie: " Grid.Column="3" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Name="TBlock_parametr_pobudzenie" Margin="65 1 0 0" FontSize="10" FontWeight="DemiBold" TextAlignment="Left" Grid.Column="3" VerticalAlignment="Center"/>
+                <Label Name="uchyb_wejscie" Foreground="Black" Grid.Column="4" FontSize="10" FontWeight="DemiBold" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
